@@ -149,8 +149,8 @@ Set-Service "DiagTrack" -StartupType Disabled
 # Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "PromptOnSecureDesktop" -Type DWord -Value 1
 
 # Enable sharing mapped drives between users
-# Write-Host "Enabling sharing mapped drives between users..."
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLinkedConnections" -Type DWord -Value 1
+Write-Host "Enabling sharing mapped drives between users..."
+Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLinkedConnections" -Type DWord -Value 1
 
 # Disable sharing mapped drives between users
 # Remove-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLinkedConnections"
@@ -196,36 +196,36 @@ Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Remote Assistance
 # Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Remote Assistance" -Name "fAllowToGetHelp" -Type DWord -Value 1
 
 # Enable Remote Desktop w/o Network Level Authentication
-# Write-Host "Enabling Remote Desktop w/o Network Level Authentication..."
-# Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type DWord -Value 0
-# Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Type DWord -Value 0
+Write-Host "Enabling Remote Desktop w/o Network Level Authentication..."
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type DWord -Value 0
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Type DWord -Value 0
 
 # Disable Remote Desktop
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type DWord -Value 1
-Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Type DWord -Value 1
+# Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type DWord -Value 1
+# Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Type DWord -Value 1
 
 ##########
 # UI Tweaks
 ##########
 
 # Disable Action Center
-# Write-Host "Disabling Action Center..."
-# If (!(Test-Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer")) {
-#	New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" | Out-Null
-# }
-# Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter" -Type DWord -Value 1
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -Type DWord -Value 0
+Write-Host "Disabling Action Center..."
+If (!(Test-Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer")) {
+	New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" | Out-Null
+}
+Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter" -Type DWord -Value 1
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -Type DWord -Value 0
 
 # Enable Action Center
 # Remove-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter"
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled"
 
 # Disable Lock screen
-# Write-Host "Disabling Lock screen..."
-# If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization")) {
-# 	New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" | Out-Null
-# }
-# Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen" -Type DWord -Value 1
+Write-Host "Disabling Lock screen..."
+If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization")) {
+	New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" | Out-Null
+}
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen" -Type DWord -Value 1
 
 # Enable Lock screen
 # Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
@@ -248,8 +248,8 @@ Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\W
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoDriveTypeAutoRun"
 
 # Disable Sticky keys prompt
-# Write-Host "Disabling Sticky keys prompt..."
-# Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Flags" -Type String -Value "506"
+Write-Host "Disabling Sticky keys prompt..."
+Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Flags" -Type String -Value "506"
 
 # Enable Sticky keys prompt
 # Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Flags" -Type String -Value "510"
@@ -283,8 +283,8 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" 
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarGlomLevel"
 
 # Show all tray icons
-# Write-Host "Showing all tray icons..."
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
+Write-Host "Showing all tray icons..."
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
 
 # Hide tray icons as needed
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"
@@ -297,8 +297,8 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 # Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type DWord -Value 1
 
 # Show hidden files
-# Write-Host "Showing hidden files..."
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 1
+Write-Host "Showing hidden files..."
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 1
 
 # Hide hidden files
 # Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 2
@@ -311,12 +311,12 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo"
 
 # Show Computer shortcut on desktop
-# Write-Host "Showing Computer shortcut on desktop..."
-# If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu")) {
-#	New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" | Out-Null
-# }
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -Type DWord -Value 0
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -Type DWord -Value 0
+Write-Host "Showing Computer shortcut on desktop..."
+If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu")) {
+	New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" | Out-Null
+}
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -Type DWord -Value 0
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" -Type DWord -Value 0
 
 # Hide Computer shortcut from desktop
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu" -Name "{20D04FE0-3AEA-1069-A2D8-08002B30309D}"
@@ -398,11 +398,11 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 ##########
 
 # Disable OneDrive
-Write-Host "Disabling OneDrive..."
-If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive")) {
-	New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" | Out-Null
-}
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Name "DisableFileSyncNGSC" -Type DWord -Value 1
+# Write-Host "Disabling OneDrive..."
+# If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive")) {
+# 	New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" | Out-Null
+# }
+# Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Name "DisableFileSyncNGSC" -Type DWord -Value 1
 
 # Enable OneDrive
 # Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Name "DisableFileSyncNGSC"
@@ -439,52 +439,52 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Nam
 # Start-Process $onedrive -NoNewWindow
 
 # Uninstall default Microsoft applications
-Write-Host "Uninstalling default Microsoft applications..."
+# Write-Host "Uninstalling default Microsoft applications..."
 Get-AppxPackage "Microsoft.3DBuilder" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingFinance" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingNews" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingSports" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.BingWeather" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.Getstarted" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.MicrosoftOfficeHub" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.MicrosoftSolitaireCollection" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.Office.OneNote" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.MicrosoftOfficeHub" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.MicrosoftSolitaireCollection" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.Office.OneNote" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.People" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.SkypeApp" | Remove-AppxPackage
 # Get-AppxPackage "Microsoft.Windows.Photos" | Remove-AppxPackage
 # Get-AppxPackage "Microsoft.WindowsAlarms" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.WindowsCamera" | Remove-AppxPackage
-Get-AppxPackage "microsoft.windowscommunicationsapps" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.WindowsCamera" | Remove-AppxPackage
+# Get-AppxPackage "microsoft.windowscommunicationsapps" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsMaps" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.WindowsPhone" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.WindowsSoundRecorder" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.XboxApp" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.ZuneMusic" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.AppConnector" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.ConnectivityStore" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.Office.Sway" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.Messaging" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.CommsPhone" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.WindowsPhone" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.WindowsSoundRecorder" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.XboxApp" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.ZuneMusic" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.ZuneVideo" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.AppConnector" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.ConnectivityStore" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.Office.Sway" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.Messaging" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.CommsPhone" | Remove-AppxPackage
 Get-AppxPackage "9E2F88E3.Twitter" | Remove-AppxPackage
 Get-AppxPackage "king.com.CandyCrushSodaSaga" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsFeedbackHub" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.Wallet" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.Wallet" | Remove-AppxPackage
 # Get-AppxPackage "Microsoft.ScreenSketch" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.GetHelp" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.Xbox.TCUI" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.XboxGameOverlay" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.XboxSpeechToTextOverlay" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.Xbox.TCUI" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.XboxGameOverlay" | Remove-AppxPackage
+# Get-AppxPackage "Microsoft.XboxSpeechToTextOverlay" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.MixedReality.Portal" | Remove-AppxPackage
-Get-AppxPackage "Microsoft.XboxIdentityProvider" | Remove-AppPackage
+# Get-AppxPackage "Microsoft.XboxIdentityProvider" | Remove-AppPackage
 Get-AppxPackage "5A894077.McAfeeSecurity" | Remove-AppPackage
 Get-AppxPackage "Disney.37853FC22B2CE" | Remove-AppPackage
-Get-AppxPackage "Microsoft.GamingApp" | Remove-AppPackage
+# Get-AppxPackage "Microsoft.GamingApp" | Remove-AppPackage
 Get-AppxPackage "Facebook.InstagramBeta" | Remove-AppPackage
 Get-AppxPackage "AdobeSystemsIncorporated.AdobeCreativeCloudExpress" | Remove-AppPackage
 Get-AppxPackage "AmazonVideo.PrimeVideo" | Remove-AppPackage
 Get-AppxPackage "BytedancePte.Ltd.TikTok" | Remove-AppPackage
-
+Get-AppxPackage -Name MicrosoftTeams -AllUsers | Remove-AppxPackage
 
 # Install default Microsoft applications
 # Add-AppxPackage -DisableDevelopmentMode -Register "$($(Get-AppXPackage -AllUsers "Microsoft.3DBuilder").InstallLocation)\AppXManifest.xml"
@@ -585,7 +585,7 @@ $services = @(
     "lfsvc"                                    # Geolocation Service
     "MapsBroker"                               # Downloaded Maps Manager
     "NetTcpPortSharing"                        # Net.Tcp Port Sharing Service
-    "RemoteAccess"                             # Routing and Remote Access
+    #"RemoteAccess"                             # Routing and Remote Access
     # "RemoteRegistry"                         # Remote Registry
     "SharedAccess"                             # Internet Connection Sharing (ICS)
     "TrkWks"                                   # Distributed Link Tracking Client
@@ -594,9 +594,9 @@ $services = @(
     "WMPNetworkSvc"                            # Windows Media Player Network Sharing Service
     #"wscsvc"                                  # Windows Security Center Service
     #"WSearch"                                 # Windows Search
-    "XblAuthManager"                           # Xbox Live Auth Manager
-    "XblGameSave"                              # Xbox Live Game Save Service
-    "XboxNetApiSvc"                            # Xbox Live Networking Service
+    #"XblAuthManager"                           # Xbox Live Auth Manager
+    #"XblGameSave"                              # Xbox Live Game Save Service
+    #"XboxNetApiSvc"                            # Xbox Live Networking Service
     "ndu"                                      # Windows Network Data Usage Monitor
     # Services which cannot be disabled
     #"WdNisSvc"
@@ -608,36 +608,36 @@ foreach ($service in $services) {
 }
 
 
-#   Description:
-# This script optimizes Windows updates by disabling automatic download and
-# seeding updates to other computers.
-#
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
+# #   Description:
+# # This script optimizes Windows updates by disabling automatic download and
+# # seeding updates to other computers.
+# #
+# Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
 
-Write-Output "Disable automatic download and installation of Windows updates"
-New-FolderForced -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU"
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "NoAutoUpdate" 0
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "AUOptions" 2
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "ScheduledInstallDay" 0
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "ScheduledInstallTime" 3
+# Write-Output "Disable automatic download and installation of Windows updates"
+# New-FolderForced -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU"
+# Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "NoAutoUpdate" 0
+# Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "AUOptions" 2
+# Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "ScheduledInstallDay" 0
+# Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\WindowsUpdate\AU" "ScheduledInstallTime" 3
 
-Write-Output "Disable seeding of updates to other computers via Group Policies"
-New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization"
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" "DODownloadMode" 0
+# # Write-Output "Disable seeding of updates to other computers via Group Policies"
+# # New-FolderForced -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization"
+# # Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization" "DODownloadMode" 0
 
-#echo "Disabling automatic driver update"
-#sp "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" "SearchOrderConfig" 0
+# #echo "Disabling automatic driver update"
+# #sp "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\DriverSearching" "SearchOrderConfig" 0
 
-$objSID = New-Object System.Security.Principal.SecurityIdentifier "S-1-1-0"
-$EveryOne = $objSID.Translate( [System.Security.Principal.NTAccount]).Value
+# $objSID = New-Object System.Security.Principal.SecurityIdentifier "S-1-1-0"
+# $EveryOne = $objSID.Translate( [System.Security.Principal.NTAccount]).Value
 
 
-Write-Output "Disable 'Updates are available' message"
+# Write-Output "Disable 'Updates are available' message"
 
-takeown /F "$env:WinDIR\System32\MusNotification.exe"
-icacls "$env:WinDIR\System32\MusNotification.exe" /deny "$($EveryOne):(X)"
-takeown /F "$env:WinDIR\System32\MusNotificationUx.exe"
-icacls "$env:WinDIR\System32\MusNotificationUx.exe" /deny "$($EveryOne):(X)"
+# takeown /F "$env:WinDIR\System32\MusNotification.exe"
+# icacls "$env:WinDIR\System32\MusNotification.exe" /deny "$($EveryOne):(X)"
+# takeown /F "$env:WinDIR\System32\MusNotificationUx.exe"
+# icacls "$env:WinDIR\System32\MusNotificationUx.exe" /deny "$($EveryOne):(X)"
 
 
 # This script removes unwanted Apps that come with Windows. If you  do not want
@@ -654,20 +654,20 @@ $apps = @(
     # default Windows 10 apps
     "Microsoft.3DBuilder"
     "Microsoft.Advertising.Xaml"
-    "Microsoft.Appconnector"
+    #"Microsoft.Appconnector"
     "Microsoft.BingFinance"
     "Microsoft.BingNews"
     "Microsoft.BingSports"
     "Microsoft.BingTranslator"
     "Microsoft.BingWeather"
     "Microsoft.FreshPaint"
-    "Microsoft.GamingServices"
+    #"Microsoft.GamingServices"
     "Microsoft.Microsoft3DViewer"
     "Microsoft.WindowsFeedbackHub"
     "Microsoft.MicrosoftOfficeHub"
     "Microsoft.MixedReality.Portal"
     "Microsoft.MicrosoftPowerBIForWindows"
-    "Microsoft.MicrosoftSolitaireCollection"
+    #"Microsoft.MicrosoftSolitaireCollection"
     #"Microsoft.MicrosoftStickyNotes"
     "Microsoft.MinecraftUWP"
     "Microsoft.NetworkSpeedTest"
@@ -685,19 +685,19 @@ $apps = @(
     "Microsoft.WindowsPhone"
     "Microsoft.WindowsSoundRecorder"
     #"Microsoft.WindowsStore"   # can't be re-installed
-    "Microsoft.Xbox.TCUI"
-    "Microsoft.XboxApp"
-    "Microsoft.XboxGameOverlay"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.XboxSpeechToTextOverlay"
-    "Microsoft.YourPhone"
+    # "Microsoft.Xbox.TCUI"
+    # "Microsoft.XboxApp"
+    # "Microsoft.XboxGameOverlay"
+    # "Microsoft.XboxGamingOverlay"
+    # "Microsoft.XboxSpeechToTextOverlay"
+    # "Microsoft.YourPhone"
     "Microsoft.ZuneMusic"
     "Microsoft.ZuneVideo"
     "Microsoft.Windows.CloudExperienceHost"
     "Microsoft.Windows.ContentDeliveryManager"
     "Microsoft.Windows.PeopleExperienceHost"
-    "Microsoft.XboxGameCallableUI"
-    "Microsoft.GamingApp"
+    # "Microsoft.XboxGameCallableUI"
+    # "Microsoft.GamingApp"
 
     # Threshold 2 apps
     "Microsoft.CommsPhone"
@@ -710,7 +710,7 @@ $apps = @(
     "Microsoft.WindowsFeedbackHub"
 
     # Creators Update apps
-    "Microsoft.Microsoft3DViewer"
+    # "Microsoft.Microsoft3DViewer"
     #"Microsoft.MSPaint"
 
     #Redstone apps
@@ -722,8 +722,8 @@ $apps = @(
     # Redstone 5 apps
     "Microsoft.MixedReality.Portal"
     #"Microsoft.ScreenSketch"
-    "Microsoft.XboxGamingOverlay"
-    "Microsoft.YourPhone"
+    # "Microsoft.XboxGamingOverlay"
+    # "Microsoft.YourPhone"
 
     # non-Microsoft
     "2FE3CB00.PicsArt-PhotoStudio"
@@ -772,6 +772,11 @@ $apps = @(
     "AdobeSystemsIncorporated.AdobeCreativeCloudExpress"
     "AmazonVideo.PrimeVideo"
     "BytedancePte.Ltd.TikTok"
+    "Windows.CBSPreview"
+    "Clipchamp.Clipchamp"
+    "MicrosoftWindows.Client.WebExperience"
+    "MicrosoftTeams"
+    "SpotifyAB.SpotifyMusic"
 
     # apps which cannot be removed using Remove-AppxPackage
     #"Microsoft.BioEnrollment"
@@ -828,65 +833,65 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" 
 #   Description:
 # This script will remove and disable OneDrive integration.
 
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
-Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
+# Import-Module -DisableNameChecking $PSScriptRoot\..\lib\New-FolderForced.psm1
+# Import-Module -DisableNameChecking $PSScriptRoot\..\lib\take-own.psm1
 
-Write-Output "Kill OneDrive process"
-taskkill.exe /F /IM "OneDrive.exe"
-taskkill.exe /F /IM "explorer.exe"
+# Write-Output "Kill OneDrive process"
+# taskkill.exe /F /IM "OneDrive.exe"
+# taskkill.exe /F /IM "explorer.exe"
 
-Write-Output "Remove OneDrive"
-if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
-    & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
-}
-if (Test-Path "$env:systemroot\SysWOW64\OneDriveSetup.exe") {
-    & "$env:systemroot\SysWOW64\OneDriveSetup.exe" /uninstall
-}
+# Write-Output "Remove OneDrive"
+# if (Test-Path "$env:systemroot\System32\OneDriveSetup.exe") {
+#     & "$env:systemroot\System32\OneDriveSetup.exe" /uninstall
+# }
+# if (Test-Path "$env:systemroot\SysWOW64\OneDriveSetup.exe") {
+#     & "$env:systemroot\SysWOW64\OneDriveSetup.exe" /uninstall
+# }
 
-Write-Output "Removing OneDrive leftovers"
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:localappdata\Microsoft\OneDrive"
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:programdata\Microsoft OneDrive"
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:systemdrive\OneDriveTemp"
-# check if directory is empty before removing:
-If ((Get-ChildItem "$env:userprofile\OneDrive" -Recurse | Measure-Object).Count -eq 0) {
-    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
-}
+# Write-Output "Removing OneDrive leftovers"
+# Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:localappdata\Microsoft\OneDrive"
+# Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:programdata\Microsoft OneDrive"
+# Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:systemdrive\OneDriveTemp"
+# # check if directory is empty before removing:
+# If ((Get-ChildItem "$env:userprofile\OneDrive" -Recurse | Measure-Object).Count -eq 0) {
+#     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:userprofile\OneDrive"
+# }
 
-Write-Output "Disable OneDrive via Group Policies"
-New-FolderForced -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive"
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive" "DisableFileSyncNGSC" 1
+# Write-Output "Disable OneDrive via Group Policies"
+# New-FolderForced -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive"
+# Set-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\OneDrive" "DisableFileSyncNGSC" 1
 
-Write-Output "Remove Onedrive from explorer sidebar"
-New-PSDrive -PSProvider "Registry" -Root "HKEY_CLASSES_ROOT" -Name "HKCR"
-mkdir -Force "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
-Set-ItemProperty -Path "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
-mkdir -Force "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
-Set-ItemProperty -Path "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
-Remove-PSDrive "HKCR"
+# Write-Output "Remove Onedrive from explorer sidebar"
+# New-PSDrive -PSProvider "Registry" -Root "HKEY_CLASSES_ROOT" -Name "HKCR"
+# mkdir -Force "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
+# Set-ItemProperty -Path "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
+# mkdir -Force "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
+# Set-ItemProperty -Path "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" "System.IsPinnedToNameSpaceTree" 0
+# Remove-PSDrive "HKCR"
 
 # Thank you Matthew Israelsson
-Write-Output "Removing run hook for new users"
-reg load "hku\Default" "C:\Users\Default\NTUSER.DAT"
-reg delete "HKEY_USERS\Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "OneDriveSetup" /f
-reg unload "hku\Default"
+# Write-Output "Removing run hook for new users"
+# reg load "hku\Default" "C:\Users\Default\NTUSER.DAT"
+# reg delete "HKEY_USERS\Default\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "OneDriveSetup" /f
+# reg unload "hku\Default"
 
-Write-Output "Removing startmenu entry"
-Remove-Item -Force -ErrorAction SilentlyContinue "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
+# Write-Output "Removing startmenu entry"
+# Remove-Item -Force -ErrorAction SilentlyContinue "$env:userprofile\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\OneDrive.lnk"
 
-Write-Output "Removing scheduled task"
-Get-ScheduledTask -TaskPath '\' -TaskName 'OneDrive*' -ea SilentlyContinue | Unregister-ScheduledTask -Confirm:$false
+# Write-Output "Removing scheduled task"
+# Get-ScheduledTask -TaskPath '\' -TaskName 'OneDrive*' -ea SilentlyContinue | Unregister-ScheduledTask -Confirm:$false
 
-Write-Output "Restarting explorer"
-Start-Process "explorer.exe"
+# Write-Output "Restarting explorer"
+# Start-Process "explorer.exe"
 
-Write-Output "Waiting for explorer to complete loading"
-Start-Sleep 10
+# Write-Output "Waiting for explorer to complete loading"
+# Start-Sleep 10
 
-Write-Output "Removing additional OneDrive leftovers"
-foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
-    Takeown-Folder $item.FullName
-    Remove-Item -Recurse -Force $item.FullName
-}
+# Write-Output "Removing additional OneDrive leftovers"
+# foreach ($item in (Get-ChildItem "$env:WinDir\WinSxS\*onedrive*")) {
+#     Takeown-Folder $item.FullName
+#     Remove-Item -Recurse -Force $item.FullName
+# }
 
 
 
@@ -932,18 +937,18 @@ net accounts /maxpwage:0
 
 # $layoutFile="C:\Windows\StartMenuLayout.xml"
 
-#Delete layout file if it already exists
+# # Delete layout file if it already exists
 # If(Test-Path $layoutFile)
 # {
 #     Remove-Item $layoutFile
 # }
 
-#Creates the blank layout file
+# # Creates the blank layout file
 # $START_MENU_LAYOUT | Out-File $layoutFile -Encoding ASCII
 
 # $regAliases = @("HKLM", "HKCU")
 
-#Assign the start layout and force it to apply with "LockedStartLayout" at both the machine and user level
+# # Assign the start layout and force it to apply with "LockedStartLayout" at both the machine and user level
 # foreach ($regAlias in $regAliases){
 #     $basePath = $regAlias + ":\SOFTWARE\Policies\Microsoft\Windows"
 #     $keyPath = $basePath + "\Explorer"
@@ -954,26 +959,45 @@ net accounts /maxpwage:0
 #     Set-ItemProperty -Path $keyPath -Name "StartLayoutFile" -Value $layoutFile
 # }
 
-#Restart Explorer, open the start menu (necessary to load the new layout), and give it a few seconds to process
+# # Restart Explorer, open the start menu (necessary to load the new layout), and give it a few seconds to process
 # Stop-Process -name explorer
 # Start-Sleep -s 5
 # $wshell = New-Object -ComObject wscript.shell; $wshell.SendKeys('^{ESCAPE}')
 # Start-Sleep -s 5
 
-#Enable the ability to pin items again by disabling "LockedStartLayout"
+# # Enable the ability to pin items again by disabling "LockedStartLayout"
 # foreach ($regAlias in $regAliases){
 #     $basePath = $regAlias + ":\SOFTWARE\Policies\Microsoft\Windows"
 #     $keyPath = $basePath + "\Explorer"
 #     Set-ItemProperty -Path $keyPath -Name "LockedStartLayout" -Value 0
 # }
 
-#Restart Explorer and delete the layout file
-Stop-Process -name explorer
 
-# Uncomment the next line to make clean start menu default for all new users
-Import-StartLayout -LayoutPath $layoutFile -MountPath $env:SystemDrive\
 
-Remove-Item $layoutFile
+# #Restart Explorer and delete the layout file
+# Stop-Process -name explorer
+
+# # Uncomment the next line to make clean start menu default for all new users
+# Import-StartLayout -LayoutPath $layoutFile -MountPath $env:SystemDrive\
+
+# Remove-Item $layoutFile
+
+Import-Module StartLayout
+
+# Get the list of pinned apps in the Start menu
+$apps = Get-StartApps 
+
+# Unpin the apps from the Start menu
+foreach ($app in $apps) {
+    $appId = $app.AppId
+    $packageName = $appId.Split('_')[0]
+    $packageFullName = (Get-AppxPackage | Where-Object {$_.PackageFamilyName -eq $packageName}).PackageFullName
+    $shell = New-Object -ComObject Shell.Application
+    $folder = $shell.Namespace('shell:::{4234d49b-0245-4df3-b780-3893943456e1}')
+    $item = $folder.Parsename("$packageName!App")
+    $verb = $item.Verbs() | Where-Object {$_.Name.replace('&', '') -eq 'Unpin from Start'}
+    $verb.DoIt()
+}
 
 
 # Prevents SYSPREP from freezing at "Getting Ready" on first boot                          #
@@ -1068,8 +1092,8 @@ reg add "HKEY_USERS\.DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Pe
 ##########
 # Restart
 ##########
-Write-Host
-Write-Host "Press any key to restart your system..." -ForegroundColor Black -BackgroundColor White
-$key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-Write-Host "Restarting..."
-Restart-Computer
+# Write-Host
+# Write-Host "Press any key to restart your system..." -ForegroundColor Black -BackgroundColor White
+# $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+# Write-Host "Restarting..."
+# Restart-Computer
