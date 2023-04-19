@@ -15,3 +15,9 @@ winget install Nvidia.Broadcast
 winget install Nvidia.GeForceExperience
 winget install "Xbox Accessories"
 winget install Adobe.Acrobat.Reader.64-bit
+winget install "HP Smart"
+winget install Microsoft.DotNet.DesktopRuntime.6
+winget install handbrake
+winget install paint.net
+winget install openshot
+winget install SlackTechnologies.Slack

@@ -484,7 +484,7 @@ Get-AppxPackage "Facebook.InstagramBeta" | Remove-AppPackage
 Get-AppxPackage "AdobeSystemsIncorporated.AdobeCreativeCloudExpress" | Remove-AppPackage
 Get-AppxPackage "AmazonVideo.PrimeVideo" | Remove-AppPackage
 Get-AppxPackage "BytedancePte.Ltd.TikTok" | Remove-AppPackage
-Get-AppxPackage -Name MicrosoftTeams -AllUsers | Remove-AppxPackage
+Get-AppxPackage -Name "MicrosoftTeams" | Remove-AppxPackage
 
 # Install default Microsoft applications
 # Add-AppxPackage -DisableDevelopmentMode -Register "$($(Get-AppXPackage -AllUsers "Microsoft.3DBuilder").InstallLocation)\AppXManifest.xml"
@@ -585,19 +585,19 @@ $services = @(
     "lfsvc"                                    # Geolocation Service
     "MapsBroker"                               # Downloaded Maps Manager
     "NetTcpPortSharing"                        # Net.Tcp Port Sharing Service
-    #"RemoteAccess"                             # Routing and Remote Access
-    # "RemoteRegistry"                         # Remote Registry
+    #"RemoteAccess"                            # Routing and Remote Access
+    #"RemoteRegistry"                          # Remote Registry
     "SharedAccess"                             # Internet Connection Sharing (ICS)
     "TrkWks"                                   # Distributed Link Tracking Client
-    # "WbioSrvc"                               # Windows Biometric Service (required for Fingerprint reader / facial detection)
+    #"WbioSrvc"                                # Windows Biometric Service (required for Fingerprint reader / facial detection)
     #"WlanSvc"                                 # WLAN AutoConfig
     "WMPNetworkSvc"                            # Windows Media Player Network Sharing Service
     #"wscsvc"                                  # Windows Security Center Service
     #"WSearch"                                 # Windows Search
-    #"XblAuthManager"                           # Xbox Live Auth Manager
-    #"XblGameSave"                              # Xbox Live Game Save Service
-    #"XboxNetApiSvc"                            # Xbox Live Networking Service
-    "ndu"                                      # Windows Network Data Usage Monitor
+    #"XblAuthManager"                          # Xbox Live Auth Manager
+    #"XblGameSave"                             # Xbox Live Game Save Service
+    #"XboxNetApiSvc"                           # Xbox Live Networking Service
+    #"ndu"                                     # Windows Network Data Usage Monitor
     # Services which cannot be disabled
     #"WdNisSvc"
 )
