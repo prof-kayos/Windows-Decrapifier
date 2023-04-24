@@ -21,3 +21,7 @@ winget install handbrake -h --accept-source-agreements --accept-package-agreemen
 winget install paint.net -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install openshot -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install SlackTechnologies.Slack -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+
+DEL /F /Q %PUBLIC%\Desktop\*.lnk 
+DEL /F /Q %USERPROFILE%\Desktop\*.lnk
+DEL /F /Q %USERPROFILE%\OneDrive\Desktop\*.lnk
