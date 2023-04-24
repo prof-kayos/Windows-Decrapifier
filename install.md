@@ -6,6 +6,7 @@ winget install beeper -h --accept-source-agreements --accept-package-agreements 
 winget install OBSProject.OBSStudio -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install discord -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install 7zip.7zip -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install WireGuard.WireGuard -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install wireshark -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install winscp -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install cpu-z -h --accept-source-agreements --accept-package-agreements --disable-interactivity
