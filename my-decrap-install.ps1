@@ -65,18 +65,12 @@ If (!(Test-Path "HKCU:\Software\Microsoft\Siuf\Rules")) {
 }
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Siuf\Rules" -Name "NumberOfSIUFInPeriod" -Type DWord -Value 0
 
-# Enable Feedback
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Siuf\Rules" -Name "NumberOfSIUFInPeriod"
-
 # Disable Advertising ID
 Write-Host "Disabling Advertising ID..."
 If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo")) {
 	New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" | Out-Null
 }
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Name "Enabled" -Type DWord -Value 0
-
-# Enable Advertising ID
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Name "Enabled"
 
 # Disable Cortana
 Write-Host "Disabling Cortana..."
@@ -94,24 +88,6 @@ If (!(Test-Path "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore"
 }
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts" -Type DWord -Value 0
 
-# Enable Cortana
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Personalization\Settings" -Name "AcceptedPrivacyPolicy"
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\InputPersonalization" -Name "RestrictImplicitTextCollection" -Type DWord -Value 0
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\InputPersonalization" -Name "RestrictImplicitInkCollection" -Type DWord -Value 0
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\InputPersonalization\TrainedDataStore" -Name "HarvestContacts"
-
-# # Restrict Windows Update P2P only to local network
-# Write-Host "Restricting Windows Update P2P only to local network..."
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode" -Type DWord -Value 1
-# If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization")) {
-# 	New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization" | Out-Null
-# }
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization" -Name "SystemSettingsDownloadMode" -Type DWord -Value 3
-
-# Unrestrict Windows Update P2P
-# Remove-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" -Name "DODownloadMode"
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\DeliveryOptimization" -Name "SystemSettingsDownloadMode"
-
 # Remove AutoLogger file and restrict directory
 Write-Host "Removing AutoLogger file and restricting directory..."
 $autoLoggerDir = "$env:PROGRAMDATA\Microsoft\Diagnosis\ETLLogs\AutoLogger"
@@ -120,71 +96,22 @@ If (Test-Path "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl") {
 }
 icacls $autoLoggerDir /deny SYSTEM:`(OI`)`(CI`)F | Out-Null
 
-# Unrestrict AutoLogger directory
-# $autoLoggerDir = "$env:PROGRAMDATA\Microsoft\Diagnosis\ETLLogs\AutoLogger"
-# icacls $autoLoggerDir /grant:r SYSTEM:`(OI`)`(CI`)F | Out-Null
-
 # Stop and disable Diagnostics Tracking Service
 Write-Host "Stopping and disabling Diagnostics Tracking Service..."
 Stop-Service "DiagTrack"
 Set-Service "DiagTrack" -StartupType Disabled
 
-# Enable and start Diagnostics Tracking Service
-# Set-Service "DiagTrack" -StartupType Automatic
-# Start-Service "DiagTrack"
-
 ##########
 # Service Tweaks
 ##########
-
-# Lower UAC level
-# Write-Host "Lowering UAC level..."
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Type DWord -Value 0
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "PromptOnSecureDesktop" -Type DWord -Value 0
-
-# Raise UAC level
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ConsentPromptBehaviorAdmin" -Type DWord -Value 5
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "PromptOnSecureDesktop" -Type DWord -Value 1
 
 # Enable sharing mapped drives between users
 Write-Host "Enabling sharing mapped drives between users..."
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLinkedConnections" -Type DWord -Value 1
 
-# Disable sharing mapped drives between users
-# Remove-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLinkedConnections"
-
-# Disable Firewall
-# Write-Host "Disabling Firewall..."
-# Set-NetFirewallProfile -Profile * -Enabled False
-
-# Enable Firewall
-# Set-NetFirewallProfile -Profile * -Enabled True
-
-# Disable Windows Defender
-# Write-Host "Disabling Windows Defender..."
-# Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Type DWord -Value 1
-
-# Enable Windows Defender
-# Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware"
-
 # Disable Windows Update automatic restart
 Write-Host "Disabling Windows Update automatic restart..."
 Set-ItemProperty -Path "HKLM:\Software\Microsoft\WindowsUpdate\UX\Settings" -Name "UxOption" -Type DWord -Value 1
-
-# Enable Windows Update automatic restart
-# Set-ItemProperty -Path "HKLM:\Software\Microsoft\WindowsUpdate\UX\Settings" -Name "UxOption" -Type DWord -Value 0
-
-# Stop and disable Home Groups services
-# Write-Host "Stopping and disabling Home Groups services..."
-# Stop-Service "HomeGroupListener"
-# Set-Service "HomeGroupListener" -StartupType Disabled
-# Stop-Service "HomeGroupProvider"
-# Set-Service "HomeGroupProvider" -StartupType Disabled
-
-# Enable and start Home Groups services
-# Set-Service "HomeGroupListener" -StartupType Manual
-# Set-Service "HomeGroupProvider" -StartupType Manual
-# Start-Service "HomeGroupProvider"
 
 # Disable Remote Assistance
 Write-Host "Disabling Remote Assistance..."
@@ -198,10 +125,6 @@ Write-Host "Enabling Remote Desktop w/o Network Level Authentication..."
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type DWord -Value 0
 Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Type DWord -Value 0
 
-# Disable Remote Desktop
-# Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Type DWord -Value 1
-# Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" -Name "UserAuthentication" -Type DWord -Value 1
-
 ##########
 # UI Tweaks
 ##########
@@ -214,36 +137,12 @@ If (!(Test-Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer")) {
 Set-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter" -Type DWord -Value 1
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled" -Type DWord -Value 0
 
-# Enable Action Center
-# Remove-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\Explorer" -Name "DisableNotificationCenter"
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled"
-
 # Disable Lock screen
 Write-Host "Disabling Lock screen..."
 If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization")) {
 	New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" | Out-Null
 }
 Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen" -Type DWord -Value 1
-
-# Enable Lock screen
-# Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
-
-# Disable Autoplay
-# Write-Host "Disabling Autoplay..."
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" -Name "DisableAutoplay" -Type DWord -Value 1
-
-# Enable Autoplay
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers" -Name "DisableAutoplay" -Type DWord -Value 0
-
-# Disable Autorun for all drives
-# Write-Host "Disabling Autorun for all drives..."
-# If (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer")) {
-#	New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" | Out-Null
-#}
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoDriveTypeAutoRun" -Type DWord -Value 255
-
-# Enable Autorun
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Name "NoDriveTypeAutoRun"
 
 # Disable Sticky keys prompt
 Write-Host "Disabling Sticky keys prompt..."
@@ -256,61 +155,21 @@ Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Fla
 Write-Host "Hiding Search Box / Button..."
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
 
-# Show Search button / box
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode"
-
-# Hide Task View button
-# Write-Host "Hiding Task View button..."
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
-
-# Hide Task View button
-# Write-Host "Hiding Task View button..."
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton" -Type DWord -Value 0
-
-# Show Task View button
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "ShowTaskViewButton"
-
-# Show small icons in taskbar
-# Write-Host "Showing small icons in taskbar..."
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarSmallIcons" -Type DWord -Value 1
-
-# Show large icons in taskbar
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarSmallIcons"
-
-# Show titles in taskbar
-# Write-Host "Showing titles in taskbar..."
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarGlomLevel" -Type DWord -Value 1
-
-# Hide titles in taskbar
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "TaskbarGlomLevel"
-
 # Show all tray icons
 Write-Host "Showing all tray icons..."
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray" -Type DWord -Value 0
-
-# Hide tray icons as needed
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name "EnableAutoTray"
 
 # Show known file extensions
 Write-Host "Showing known file extensions..."
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type DWord -Value 0
 
-# Hide known file extensions
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type DWord -Value 1
-
 # Show hidden files
 Write-Host "Showing hidden files..."
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 1
 
-# Hide hidden files
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 2
-
 # Change default Explorer view to "Computer"
 Write-Host "Changing default Explorer view to `"Computer`"..."
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
-
-# Change default Explorer view to "Quick Access"
-# Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo"
 
 # Show hidden files
 Write-Host "Showing hidden files..."
