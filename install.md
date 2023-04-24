@@ -1,23 +1,23 @@
-winget install bitwarden
-winget install terminal
-winget install vscode
-winget install Git.Git
-winget install beeper
-winget install OBSProject.OBSStudio
-winget install discord
-winget install 7-zip
-winget install wireshark
-winget install winscp
-winget install cpu-z
-winget install hwinfo
-winget install Valve.Steam
-winget install Nvidia.Broadcast
-winget install Nvidia.GeForceExperience
-winget install "Xbox Accessories"
-winget install Adobe.Acrobat.Reader.64-bit
-winget install "HP Smart"
-winget install Microsoft.DotNet.DesktopRuntime.6
-winget install handbrake
-winget install paint.net
-winget install openshot
-winget install SlackTechnologies.Slack
+winget install Bitwarden.Bitwarden -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Microsoft.WindowsTerminal -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install vscode -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Git.Git -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install beeper -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install OBSProject.OBSStudio -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install discord -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install 7zip.7zip -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install wireshark -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install winscp -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install cpu-z -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install hwinfo -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Valve.Steam -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Nvidia.Broadcast -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Nvidia.GeForceExperience -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install "Xbox Accessories" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Adobe.Acrobat.Reader.64-bit -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install "HP Smart" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Microsoft.DotNet.DesktopRuntime.6 -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install handbrake -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install paint.net -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install openshot -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install SlackTechnologies.Slack -h --accept-source-agreements --accept-package-agreements --disable-interactivity
