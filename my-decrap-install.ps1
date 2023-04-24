@@ -130,9 +130,6 @@ Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalizatio
 Write-Host "Disabling Sticky keys prompt..."
 Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Flags" -Type String -Value "506"
 
-# Enable Sticky keys prompt
-# Set-ItemProperty -Path "HKCU:\Control Panel\Accessibility\StickyKeys" -Name "Flags" -Type String -Value "510"
-
 # Hide Search button / box
 Write-Host "Hiding Search Box / Button..."
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "SearchboxTaskbarMode" -Type DWord -Value 0
