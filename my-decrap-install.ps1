@@ -524,6 +524,7 @@ Remove-Item C:\Users\*\OneDrive\Desktop\*lnk –Force
 ##########
 # Restart
 ##########
+
 Write-Host
 Write-Host "Press any key to restart your system..." -ForegroundColor Black -BackgroundColor White
 $key = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
