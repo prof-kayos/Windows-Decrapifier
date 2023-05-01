@@ -27,7 +27,7 @@ winget install Elgato.StreamDeck -h --accept-source-agreements --accept-package-
 winget install cura -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "Brave Browser" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "PrivateInternetAccess.PrivateInternetAccess" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-
+winget install "WhirlwindFX.SignalRgb" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 
 DEL /F /Q %PUBLIC%\Desktop\*.lnk 
 DEL /F /Q %USERPROFILE%\Desktop\*.lnk
