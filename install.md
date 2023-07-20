@@ -1,3 +1,6 @@
+# Base Install
+
+```powershell
 winget install Bitwarden.Bitwarden -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Microsoft.WindowsTerminal -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install vscode -h --accept-source-agreements --accept-package-agreements --disable-interactivity
@@ -30,7 +33,9 @@ winget install "PrivateInternetAccess.PrivateInternetAccess" -h --accept-source-
 winget install "WhirlwindFX.SignalRgb" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install sysinternals -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Microsoft.PowerToys -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install WizTree -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 
 DEL /F /Q %PUBLIC%\Desktop\*.lnk 
 DEL /F /Q %USERPROFILE%\Desktop\*.lnk
 DEL /F /Q %USERPROFILE%\OneDrive\Desktop\*.lnk
+```
