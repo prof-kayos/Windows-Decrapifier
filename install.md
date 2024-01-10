@@ -15,11 +15,8 @@ winget install winscp -h --accept-source-agreements --accept-package-agreements 
 winget install cpu-z -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install hwinfo -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Valve.Steam -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install Nvidia.Broadcast -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install Nvidia.GeForceExperience -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "Xbox Accessories" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Adobe.Acrobat.Reader.64-bit -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install "HP Smart" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Microsoft.DotNet.DesktopRuntime.6 -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install handbrake -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install paint.net -h --accept-source-agreements --accept-package-agreements --disable-interactivity
@@ -27,7 +24,7 @@ winget install openshot -h --accept-source-agreements --accept-package-agreement
 winget install SlackTechnologies.Slack -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Citrix -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Elgato.StreamDeck -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install cura -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install orcaslicer -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "Brave Browser" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "PrivateInternetAccess.PrivateInternetAccess" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "WhirlwindFX.SignalRgb" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
