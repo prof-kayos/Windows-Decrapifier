@@ -31,6 +31,9 @@ winget install "WhirlwindFX.SignalRgb" -h --accept-source-agreements --accept-pa
 winget install sysinternals -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Microsoft.PowerToys -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install WizTree -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install realvnc -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Nextcloud.NextcloudDesktop -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Microsoft.OneDrive -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 
 DEL /F /Q %PUBLIC%\Desktop\*.lnk 
 DEL /F /Q %USERPROFILE%\Desktop\*.lnk
