@@ -21,6 +21,7 @@ winget install Bitwarden.Bitwarden -h --accept-source-agreements --accept-packag
 winget install Microsoft.WindowsTerminal -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install vscode -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install beeper -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Guru3D.Afterburner -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install OBSProject.OBSStudio -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install discord -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install 7zip.7zip -h --accept-source-agreements --accept-package-agreements --disable-interactivity
