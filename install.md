@@ -5,16 +5,11 @@ wsl --install
 
 winget install Nextcloud.NextcloudDesktop -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Git.Git -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+```
 
-mklink /D %USERPROFILE%\.ssh %USERPROFILE%\Nextcloud\Backup\Kayos\.ssh
+Remap Desktop, Documents, etc. to %USERPROFILE%\NextCloud
 
-mkdir %USERPROFILE%\git
-
-cd %USERPROFILE%\git
-
-git clone git@github.com:prof-kayos/linux.git
-
-git clone git@github.com:prof-kayos/Windows-Decrapifier.git
+```powershell
 
 winget install AMD.AMDSoftwareCloudEdition -h --accept-source-agreements --accept-package-agreements --disable-interactivit
 winget install Bitwarden.Bitwarden -h --accept-source-agreements --accept-package-agreements --disable-interactivity
