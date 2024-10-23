@@ -29,6 +29,7 @@ winget install WireGuard.WireGuard -h --accept-source-agreements --accept-packag
 winget install wireshark -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install winscp -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install cpu-z -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Obsidian.Obsidian -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install hwinfo -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Valve.Steam -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "Xbox Accessories" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
