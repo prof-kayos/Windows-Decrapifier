@@ -26,7 +26,8 @@ winget install winscp -h --accept-source-agreements --accept-package-agreements 
 winget install cpu-z -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Obsidian.Obsidian -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install hwinfo -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install Audacity.Audacity -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Audacity.Audacity -h --accept-source-agreements --accept-package-agreements --disable-interactivity\
+winget install "Windows Sound Recorder" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Valve.Steam -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "Xbox Accessories" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Adobe.Acrobat.Reader.64-bit -h --accept-source-agreements --accept-package-agreements --disable-interactivity
