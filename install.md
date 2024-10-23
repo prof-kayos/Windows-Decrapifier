@@ -35,6 +35,7 @@ winget install Adobe.Acrobat.Reader.64-bit -h --accept-source-agreements --accep
 winget install Microsoft.DotNet.DesktopRuntime.6 -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install handbrake -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install paint.net -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Cinebench -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install openshot -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install SlackTechnologies.Slack -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Citrix -h --accept-source-agreements --accept-package-agreements --disable-interactivity
