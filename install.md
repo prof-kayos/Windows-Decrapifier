@@ -1,10 +1,25 @@
 # Base Install
 
 ```powershell
+wsl --install
+
+winget install Nextcloud.NextcloudDesktop -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Git.Git -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+
+mklink /D %USERPROFILE%\.ssh %USERPROFILE%\Nextcloud\Backup\Kayos\.ssh
+
+mkdir %USERPROFILE%\git
+
+cd %USERPROFILE%\git
+
+git clone git@github.com:prof-kayos/linux.git
+
+git clone git@github.com:prof-kayos/Windows-Decrapifier.git
+
+winget install AMD.AMDSoftwareCloudEdition -h --accept-source-agreements --accept-package-agreements --disable-interactivit
 winget install Bitwarden.Bitwarden -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Microsoft.WindowsTerminal -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install vscode -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install Git.Git -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install beeper -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install OBSProject.OBSStudio -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install discord -h --accept-source-agreements --accept-package-agreements --disable-interactivity
@@ -24,6 +39,8 @@ winget install openshot -h --accept-source-agreements --accept-package-agreement
 winget install SlackTechnologies.Slack -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Citrix -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Elgato.StreamDeck -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Elgato.WaveLink -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Rem0o.FanControl -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install orcaslicer -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "Brave Browser" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "PrivateInternetAccess.PrivateInternetAccess" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
@@ -32,10 +49,8 @@ winget install sysinternals -h --accept-source-agreements --accept-package-agree
 winget install Microsoft.PowerToys -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install WizTree -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install CrystalDewWorld.CrystalDiskMark -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install realvnc -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install Nextcloud.NextcloudDesktop -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install Microsoft.OneDrive -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-
+winget install virt-viewer -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Microsoft.Office -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 DEL /F /Q %PUBLIC%\Desktop\*.lnk 
 DEL /F /Q %USERPROFILE%\Desktop\*.lnk
 DEL /F /Q %USERPROFILE%\OneDrive\Desktop\*.lnk
