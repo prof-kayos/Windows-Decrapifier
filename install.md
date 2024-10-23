@@ -57,4 +57,5 @@ winget install Microsoft.Office -h --accept-source-agreements --accept-package-a
 DEL /F /Q %PUBLIC%\Desktop\*.lnk 
 DEL /F /Q %USERPROFILE%\Desktop\*.lnk
 DEL /F /Q %USERPROFILE%\OneDrive\Desktop\*.lnk
+DEL /F /Q %USERPROFILE%\NextCloud\Desktop\*.lnk
 ```
