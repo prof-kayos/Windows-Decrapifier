@@ -41,7 +41,7 @@ winget install Citrix -h --accept-source-agreements --accept-package-agreements 
 winget install Elgato.StreamDeck -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Elgato.WaveLink -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Rem0o.FanControl -h --accept-source-agreements --accept-package-agreements --disable-interactivity
-winget install orcaslicer -h --accept-source-agreements --accept-package-agreements --disable-interactivity
+winget install Bambulab.Bambustudio -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "Brave Browser" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "PrivateInternetAccess.PrivateInternetAccess" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install "WhirlwindFX.SignalRgb" -h --accept-source-agreements --accept-package-agreements --disable-interactivity
