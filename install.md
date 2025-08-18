@@ -11,7 +11,6 @@ Remap Desktop, Documents, etc. to %USERPROFILE%\NextCloud
 
 ```powershell
 
-winget install AMD.AMDSoftwareCloudEdition -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Bitwarden.Bitwarden -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install Microsoft.WindowsTerminal -h --accept-source-agreements --accept-package-agreements --disable-interactivity
 winget install vscode -h --accept-source-agreements --accept-package-agreements --disable-interactivity
